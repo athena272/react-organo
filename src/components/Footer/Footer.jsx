@@ -7,17 +7,17 @@ export default function Footer() {
                 <ul>
                     <li>
                         <a href="facebook.com" target="_blank">
-                            <img src="/assets/facebook.png" alt="" />
+                            <img src="/assets/fb.png" alt="" />
                         </a>
                     </li>
                     <li>
                         <a href="twitter.com" target="_blank">
-                            <img src="/assets/twitter.png" alt="" />
+                            <img src="/assets/tw.png" alt="" />
                         </a>
                     </li>
                     <li>
                         <a href="instagram.com" target="_blank">
-                            <img src="/assets/instagram.png" alt="" />
+                            <img src="/assets/ig.png" alt="" />
                         </a>
                     </li>
                 </ul>
