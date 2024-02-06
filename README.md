@@ -9,7 +9,7 @@ Conheça o Organo, um projeto open-source da Alura que demonstra como criar uma 
 Gerencie seus colaboradores com o Organo! Plataforma completa e gratuita, desenvolvida com ReactJS, NodeJS e MongoDB. Cadastre, edite e exclua colaboradores com facilidade.
 
 ## Recursos Principais:
-- **Persistência de dados no localStorage:** Após adicionar um card de um colaborador, os dados ficarão salvos mesmo que a página recarregue.
+- **Custom hook para persistência de dados no localStorage:** Após adicionar um card de um colaborador, os dados ficarão salvos mesmo que a página recarregue.
 
 - **Formulários com React:** Permite aos usuários filtrar os pratos com base em categorias específicas, como entradas, pratos principais, sobremesas, bebidas, etc. Isso facilita a organização e navegação pelo cardápio, permitindo que os clientes vejam apenas os itens de interesse, simplificando a seleção.
 
