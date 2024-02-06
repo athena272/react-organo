@@ -16,6 +16,8 @@ export default function Collaborator({ name, role, image, primaryColor }) {
                     src={image}
                     alt={name}
                     loading='lazy'
+                    width={100}
+                    height={100}
                 />
             </div>
             <div className={styles.footer}>
