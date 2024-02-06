@@ -34,8 +34,9 @@ export default function Form({ onRegisterCollaborator }) {
     return (
         <section className={styles.form}>
             <form onSubmit={hanbleSalve}>
-                <h2>Preencha os dados para criar o card do colaborador</h2>
+                <fieldset>Preencha os dados para criar o card do colaborador</fieldset>
                 <TextField
+                    id={'user-name'}
                     label="Nome"
                     placeholderText="Digite seu nome"
                     isRequired={true}
@@ -43,6 +44,7 @@ export default function Form({ onRegisterCollaborator }) {
                     onTyping={value => setName(value)}
                 />
                 <TextField
+                    id={'user-role'}
                     label="Cargo"
                     placeholderText="Digite seu cargo"
                     isRequired={true}
@@ -50,6 +52,7 @@ export default function Form({ onRegisterCollaborator }) {
                     onTyping={value => setRole(value)}
                 />
                 <TextField
+                    id={'user-image'}
                     label="Imagem"
                     placeholderText="Digite o endereço da imagem"
                     isRequired={false}
@@ -57,6 +60,7 @@ export default function Form({ onRegisterCollaborator }) {
                     onTyping={value => setImage(value)}
                 />
                 <DropdownList
+                    id={'user-select-time'}
                     isRequired={true}
                     label="Time"
                     listItems={times}
