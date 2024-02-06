@@ -66,7 +66,7 @@ export default function Footer() {
             </section>
             <section>
                 <img
-                    src="/assets/logo.png"
+                    src="/assets/logo.webp"
                     alt="organo logo"
                     width={191}
                     height={73}
