@@ -12,7 +12,11 @@ export default function Collaborator({ name, role, image, primaryColor }) {
     return (
         <div className={styles.collaborator}>
             <div className={styles.header} style={{ backgroundColor: primaryColor }}>
-                <img src={image} alt={name} />
+                <img
+                    src={image}
+                    alt={name}
+                    loading='lazy'
+                />
             </div>
             <div className={styles.footer}>
                 <h4>{name}</h4>
