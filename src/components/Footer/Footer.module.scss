@@ -6,13 +6,30 @@ footer {
     justify-content: space-between;
     align-items: center;
 
-    ul li {
-        display: inline-block;
-        margin-right: 32px;
+    ul {
+        display: flex;
+        list-style: none;
 
-        &:last-child {
-            margin-right: 0;
+        li {
+            margin-right: 32px;
 
+            a {
+                display: inline-block;
+                width: 30px;
+                color: #fff;
+                fill: #fff;
+
+                svg {
+                    width: 30px;
+                    color: #fff;
+                    fill: #fff;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+
+            }
         }
     }
 }
