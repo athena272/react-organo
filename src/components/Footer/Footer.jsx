@@ -65,7 +65,12 @@ export default function Footer() {
                 </ul>
             </section>
             <section>
-                <img src="/assets/logo.png" alt="" />
+                <img
+                    src="/assets/logo.png"
+                    alt="organo logo"
+                    width={191}
+                    height={73}
+                />
             </section>
             <section>
                 <p>
