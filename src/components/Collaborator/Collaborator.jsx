@@ -13,7 +13,11 @@ Collaborator.propTypes = {
 export default function Collaborator({ name, role, image, backgroundColor, onDelete }) {
     return (
         <div className={styles.collaborator}>
-            <AiFillCloseCircle size={35} onClick={onDelete} className={styles.delete} />
+            <AiFillCloseCircle
+                size={35}
+                onClick={onDelete}
+                className={styles.delete}
+            />
             <div className={styles.header} style={{ backgroundColor: backgroundColor }}>
                 <img
                     src={image}
