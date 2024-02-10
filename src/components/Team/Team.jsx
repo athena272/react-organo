@@ -1,5 +1,5 @@
 import Collaborator from '../Collaborator/Collaborator'
-import styles from './Time.module.scss'
+import styles from './Team.module.scss'
 import PropTypes from "prop-types"
 import hexToRgba from 'hex-to-rgba';
 import { memo } from 'react';
