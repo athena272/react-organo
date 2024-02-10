@@ -6,13 +6,13 @@ import hexToRgba from 'hex-to-rgba';
 Time.propTypes = {
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-    idTime: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     collaborators: PropTypes.array.isRequired,
     onDelete: PropTypes.func,
     onChangeTheme: PropTypes.func,
 }
 
-export default function Time({ name, color, idTime, collaborators, onDelete, onChangeTheme }) {
+export default function Time({ name, color, id, collaborators, onDelete, onChangeTheme }) {
 
     return (
         collaborators.length > 0 && (
@@ -23,13 +23,13 @@ export default function Time({ name, color, idTime, collaborators, onDelete, onC
                     backgroundImage: 'url(/assets/fundo.png)',
                 }}
             >
-                <label htmlFor={idTime}></label>
+                <label htmlFor={id}></label>
                 <input
                     onChange={(event) => onChangeTheme({
                         color: event.target.value,
-                        name,
+                        id,
                     })}
-                    id={idTime}
+                    id={id}
                     value={color}
                     type="color"
                     className={styles.inputColor}
