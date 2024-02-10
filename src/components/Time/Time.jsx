@@ -1,31 +1,40 @@
 import Collaborator from '../Collaborator/Collaborator'
 import styles from './Time.module.scss'
 import PropTypes from "prop-types"
+import hexToRgba from 'hex-to-rgba';
 
 Time.propTypes = {
     name: PropTypes.string.isRequired,
-    primaryColor: PropTypes.string.isRequired,
-    secondaryColor: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    idTime: PropTypes.string.isRequired,
     collaborators: PropTypes.array.isRequired,
     onDelete: PropTypes.func,
     onChangeTheme: PropTypes.func,
 }
 
-export default function Time({ name, primaryColor, secondaryColor, collaborators, onDelete, onChangeTheme }) {
+export default function Time({ name, color, idTime, collaborators, onDelete, onChangeTheme }) {
 
     return (
         collaborators.length > 0 && (
             <section
                 className={styles.time}
-                style={{ backgroundColor: secondaryColor }}
+                style={{
+                    backgroundColor: hexToRgba(color, '0.3'),
+                    backgroundImage: 'url(/assets/fundo.png)',
+                }}
             >
+                <label htmlFor={idTime}></label>
                 <input
-                    onChange={(event) => onChangeTheme(event.target.value, name)}
-                    value={secondaryColor}
+                    onChange={(event) => onChangeTheme({
+                        color: event.target.value,
+                        name,
+                    })}
+                    id={idTime}
+                    value={color}
                     type="color"
                     className={styles.inputColor}
                 />
-                <h3 style={{ borderColor: primaryColor }}>{name}</h3>
+                <h3 style={{ borderColor: color }}>{name}</h3>
                 <div className={styles.collaborators}>
                     {
                         collaborators.map((collaborator, index) => (
@@ -34,7 +43,7 @@ export default function Time({ name, primaryColor, secondaryColor, collaborators
                                 name={collaborator['name']}
                                 role={collaborator['role']}
                                 image={collaborator['image']}
-                                primaryColor={primaryColor}
+                                backgroundColor={color}
                                 onDelete={onDelete}
                             />
                         ))
