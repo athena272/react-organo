@@ -19,7 +19,7 @@ export default function Time({ name, color, id, collaborators, onDelete, onChang
             <section
                 className={styles.time}
                 style={{
-                    backgroundColor: hexToRgba(color, '0.3'),
+                    backgroundColor: hexToRgba(color, '0.5'),
                     backgroundImage: 'url(/assets/fundo.png)',
                 }}
             >
