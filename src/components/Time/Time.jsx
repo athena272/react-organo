@@ -19,7 +19,7 @@ export default function Time({ name, color, id, collaborators, onDelete, onChang
             <section
                 className={styles.time}
                 style={{
-                    backgroundColor: hexToRgba(color, '0.3'),
+                    backgroundColor: hexToRgba(color, '0.5'),
                     backgroundImage: 'url(/assets/fundo.png)',
                 }}
             >
@@ -30,11 +30,12 @@ export default function Time({ name, color, id, collaborators, onDelete, onChang
                         id,
                     })}
                     id={id}
+                    aria-label={id}
                     value={color}
                     type="color"
                     className={styles.inputColor}
                 />
-                <h3 style={{ borderColor: color }}>{name}</h3>
+                <h2 style={{ borderColor: color }}>{name}</h2>
                 <div className={styles.collaborators}>
                     {
                         collaborators.map((collaborator, index) => (
