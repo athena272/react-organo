@@ -9,6 +9,9 @@ import { useLocalState } from './hooks';
 export default function App() {
   // const [collaborators, setCollaborators] = useState([])
   const [collaborators, setCollaborators] = useLocalState("collaborators", [])
+  const [timesToUse, setTimesToUse] = useLocalState("timesToUse", times)
+
+  console.log(times)
 
   function addCollaborators(collaborator) {
     // setCollaborators([...collaborators, collaborator])
@@ -21,18 +24,33 @@ export default function App() {
     });
   }
 
+  function removeCollaborator() {
+    console.log('Deleting collaborator')
+  }
+
+  function handleChangeTheme(color, name) {
+    setTimesToUse(timesToUse.map(time => {
+      if (time.name === name) {
+        time.secondaryColor = color
+      }
+      return time
+    }))
+  }
+
   return (
     <>
       <Banner />
       <Form onRegisterCollaborator={collaborator => addCollaborators(collaborator)} />
       {
-        times.map((time, index) => (
+        timesToUse.map((time, index) => (
           <Time
             key={index}
+            onChangeTheme={handleChangeTheme}
             name={time['name']}
             primaryColor={time['primaryColor']}
             secondaryColor={time['secondaryColor']}
             collaborators={collaborators.filter(collaborator => collaborator.time === time.name)}
+            onDelete={removeCollaborator}
           />
         ))
       }
