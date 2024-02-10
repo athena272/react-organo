@@ -30,11 +30,12 @@ export default function Time({ name, color, id, collaborators, onDelete, onChang
                         id,
                     })}
                     id={id}
+                    aria-label={id}
                     value={color}
                     type="color"
                     className={styles.inputColor}
                 />
-                <h3 style={{ borderColor: color }}>{name}</h3>
+                <h2 style={{ borderColor: color }}>{name}</h2>
                 <div className={styles.collaborators}>
                     {
                         collaborators.map((collaborator, index) => (
