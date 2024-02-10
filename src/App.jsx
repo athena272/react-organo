@@ -26,9 +26,9 @@ export default function App() {
     console.log('Deleting collaborator')
   }
 
-  function handleChangeTheme({ color, name }) {
+  function handleChangeTheme({ color, id }) {
     setTimesToUse(timesToUse.map(time => {
-      if (time['name'] === name) {
+      if (time['id'] === id) {
         time['color'] = color
       }
       return time
@@ -50,7 +50,7 @@ export default function App() {
             name={time['name']}
             collaborators={collaborators.filter(collaborator => collaborator.time === time.name)}
             onDelete={removeCollaborator}
-            idTime={`${time['name']}-${index}`}
+            id={time['id']}
           />
         ))
       }
