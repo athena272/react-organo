@@ -21,8 +21,8 @@ export default function Collaborator({ name, role, image, primaryColor }) {
                 />
             </div>
             <div className={styles.footer}>
-                <h4>{name}</h4>
-                <h5>{role}</h5>
+                <h3>{name}</h3>
+                <h4>{role}</h4>
             </div>
         </div>
     )
