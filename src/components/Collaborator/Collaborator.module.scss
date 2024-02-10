@@ -1,6 +1,13 @@
 .collaborator {
     width: 280px;
     font-family: "Poppins";
+    position: relative;
+
+    .delete {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+    }
 
     .header {
         background-color: #F0F0F0;
