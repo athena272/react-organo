@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 Field.propTypes = {
     id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     placeholderText: PropTypes.string.isRequired,
     isRequired: PropTypes.bool.isRequired,
@@ -10,17 +11,18 @@ Field.propTypes = {
     onTyping: PropTypes.func.isRequired,
 }
 
-export default function Field({ id, label, placeholderText, isRequired, valueToUse, onTyping }) {
+export default function Field({ id, label, placeholderText, isRequired, valueToUse, onTyping, type = 'text' }) {
     function handleTyping(event) {
         onTyping(event.target.value)
     }
 
     return (
-        <div className={styles.field}>
+        <div className={`${styles.field} ${type === 'color' ? styles.fieldColor : ''}`}>
             <label htmlFor={id}>
                 {label}
             </label>
             <input
+                type={type}
                 aria-label={id}
                 id={id}
                 value={valueToUse}
