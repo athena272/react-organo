@@ -16,6 +16,8 @@ export default function Form({ onRegisterCollaborator }) {
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
     const [time, setTime] = useState('')
+    const [timeName, setTimeName] = useState('')
+    const [colorTime, setColorTime] = useState('')
 
     const hanbleSalve = (event) => {
         event.preventDefault()
@@ -71,6 +73,28 @@ export default function Form({ onRegisterCollaborator }) {
                 />
                 <Button>
                     Criar Card
+                </Button>
+            </form>
+            <form onSubmit={hanbleSalve}>
+                <fieldset>Preencha os dados para criar um novo time</fieldset>
+                <TextField
+                    id={'time-name'}
+                    label="Nome"
+                    placeholderText="Digite o nome do time"
+                    isRequired={true}
+                    valueToUse={timeName}
+                    onTyping={value => setTimeName(value)}
+                />
+                <TextField
+                    id={'color-time'}
+                    label="Cor [HEXADECIMAL]"
+                    placeholderText="Digite a cor do time [#F2F2F2]"
+                    isRequired={true}
+                    valueToUse={colorTime}
+                    onTyping={value => setColorTime(value)}
+                />
+                <Button>
+                    Criar Time
                 </Button>
             </form>
         </section>
