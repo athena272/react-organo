@@ -56,6 +56,16 @@ export default function App() {
     }])
   }
 
+  function handleFavorite(id) {
+    setCollaborators(prevState => prevState.map(collaborator => {
+      if (collaborator['id'] === id) {
+        collaborator['isFavorited'] = !collaborator['isFavorited']
+      }
+
+      return collaborator
+    }))
+  }
+
   return (
     <>
       <Banner />
@@ -69,12 +79,13 @@ export default function App() {
         teamsToUse.map((team, index) => (
           <Team
             key={index}
-            onChangeTheme={handleChangeTheme}
             color={team['color']}
             name={team['name']}
             collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
             onDelete={removeCollaborator}
             id={team['id']}
+            onChangeTheme={handleChangeTheme}
+            onFavorited={handleFavorite}
           />
         ))
       }

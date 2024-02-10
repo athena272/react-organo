@@ -11,10 +11,11 @@ Team.propTypes = {
     collaborators: PropTypes.array.isRequired,
     onDelete: PropTypes.func,
     onChangeTheme: PropTypes.func,
+    onFavorited: PropTypes.func,
 }
 
-function Team({ name, color, id, collaborators, onDelete, onChangeTheme }) {
-    
+function Team({ name, color, id, collaborators, onDelete, onChangeTheme, onFavorited }) {
+
     return (
         collaborators.length > 0 && (
             <section
@@ -47,7 +48,9 @@ function Team({ name, color, id, collaborators, onDelete, onChangeTheme }) {
                                 image={collaborator['image']}
                                 backgroundColor={color}
                                 id={collaborator['id']}
+                                isFavorited={collaborator['isFavorited']}
                                 onDelete={onDelete}
+                                onFavorited={onFavorited}
                             />
                         ))
                     }
