@@ -13,8 +13,6 @@ export default function App() {
   const [collaborators, setCollaborators] = useLocalState("collaborators", inicial)
   const [teamsToUse, setTeamsToUse] = useLocalState("teamsToUse", teams)
 
-  console.log(teamsToUse)
-
   useEffect(() => {
     setTeamsToUse(teamsToUse.map(team => {
       if (team['color'].toLowerCase() === '#ff0033') {
