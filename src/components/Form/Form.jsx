@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PropTypes from "prop-types"
+import { v4 as uuidv4 } from 'uuid';
 import Button from "../Button/Button";
 import DropdownList from "../DropdownList/DropdownList";
 import TextField from "../TextField/TextField";
@@ -19,6 +20,7 @@ export default function Form({ onRegisterCollaborator }) {
     const hanbleSalve = (event) => {
         event.preventDefault()
         onRegisterCollaborator({
+            id: uuidv4(),
             name,
             role,
             image,
