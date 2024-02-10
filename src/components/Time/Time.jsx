@@ -2,6 +2,7 @@ import Collaborator from '../Collaborator/Collaborator'
 import styles from './Time.module.scss'
 import PropTypes from "prop-types"
 import hexToRgba from 'hex-to-rgba';
+import { memo } from 'react';
 
 Time.propTypes = {
     name: PropTypes.string.isRequired,
@@ -12,7 +13,7 @@ Time.propTypes = {
     onChangeTheme: PropTypes.func,
 }
 
-export default function Time({ name, color, id, collaborators, onDelete, onChangeTheme }) {
+function Time({ name, color, id, collaborators, onDelete, onChangeTheme }) {
 
     return (
         collaborators.length > 0 && (
@@ -45,6 +46,7 @@ export default function Time({ name, color, id, collaborators, onDelete, onChang
                                 role={collaborator['role']}
                                 image={collaborator['image']}
                                 backgroundColor={color}
+                                id={collaborator['id']}
                                 onDelete={onDelete}
                             />
                         ))
@@ -54,3 +56,5 @@ export default function Time({ name, color, id, collaborators, onDelete, onChang
         )
     )
 }
+
+export default memo(Time)

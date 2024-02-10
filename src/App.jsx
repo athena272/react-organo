@@ -25,9 +25,6 @@ export default function App() {
   }, [])
 
   function addCollaborators(collaborator) {
-    // setCollaborators([...collaborators, collaborator])
-    // console.log(collaborators)
-
     setCollaborators(prevState => {
       const updatedCollaborators = [...prevState, collaborator];
       console.log(updatedCollaborators);
@@ -35,8 +32,12 @@ export default function App() {
     });
   }
 
-  function removeCollaborator() {
-    console.log('Deleting collaborator')
+  function removeCollaborator(id) {
+    setCollaborators(prevState => {
+      const updatedCollaborators = prevState.filter(collaborator => collaborator['id'] !== id)
+      console.log(updatedCollaborators);
+      return updatedCollaborators;
+    })
   }
 
   function handleChangeTheme({ color, id }) {
