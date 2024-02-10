@@ -1,16 +1,19 @@
 import styles from './Collaborator.module.scss'
 import PropTypes from "prop-types"
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 Collaborator.propTypes = {
     name: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     primaryColor: PropTypes.string.isRequired,
+    onDelete: PropTypes.func
 }
 
-export default function Collaborator({ name, role, image, primaryColor }) {
+export default function Collaborator({ name, role, image, primaryColor, onDelete }) {
     return (
         <div className={styles.collaborator}>
+            <AiFillCloseCircle size={35} onClick={onDelete} className={styles.delete} />
             <div className={styles.header} style={{ backgroundColor: primaryColor }}>
                 <img
                     src={image}
