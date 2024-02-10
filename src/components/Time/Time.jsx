@@ -45,6 +45,7 @@ export default function Time({ name, color, id, collaborators, onDelete, onChang
                                 role={collaborator['role']}
                                 image={collaborator['image']}
                                 backgroundColor={color}
+                                id={collaborator['id']}
                                 onDelete={onDelete}
                             />
                         ))
