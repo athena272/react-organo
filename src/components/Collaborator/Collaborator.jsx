@@ -44,6 +44,7 @@ function Collaborator({ id, name, role, image, backgroundColor, onDelete, onFavo
                         <AiFillHeart
                             size={55}
                             onClick={handleFavorite}
+                            className={styles.colorHeart}
                         />
                         :
                         <AiOutlineHeart
