@@ -98,6 +98,7 @@ export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
                     id={'color-team'}
                     type='color'
                     label="Cor [HEXADECIMAL]"
+                    placeholderText="Digite a cor do time [#F2F2F2]"
                     isRequired={true}
                     valueToUse={teamColor}
                     onTyping={value => setTeamColor(value)}
