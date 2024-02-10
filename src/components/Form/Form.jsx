@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { v4 as uuidv4 } from 'uuid';
 import Button from "../Button/Button";
 import DropdownList from "../DropdownList/DropdownList";
-import TextField from "../TextField/TextField";
+import Field from "../Field/Field";
 import styles from './Form.module.scss'
 
 Form.propTypes = {
@@ -40,7 +40,7 @@ export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
         <section className={styles.form}>
             <form onSubmit={hanbleSalve}>
                 <fieldset>Preencha os dados para criar o card do colaborador</fieldset>
-                <TextField
+                <Field
                     id={'user-name'}
                     label="Nome"
                     placeholderText="Digite seu nome"
@@ -48,7 +48,7 @@ export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
                     valueToUse={name}
                     onTyping={value => setName(value)}
                 />
-                <TextField
+                <Field
                     id={'user-role'}
                     label="Cargo"
                     placeholderText="Digite seu cargo"
@@ -56,7 +56,7 @@ export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
                     valueToUse={role}
                     onTyping={value => setRole(value)}
                 />
-                <TextField
+                <Field
                     id={'user-image'}
                     label="Imagem"
                     placeholderText="Digite o endereço da imagem"
