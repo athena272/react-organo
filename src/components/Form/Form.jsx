@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import DropdownList from "../DropdownList/DropdownList";
 import TextField from "../TextField/TextField";
 import styles from './Form.module.scss'
-import { times } from '../../data'
+import { teams } from '../../data'
 
 Form.propTypes = {
     onRegisterCollaborator: PropTypes.func.isRequired,
@@ -15,9 +15,9 @@ export default function Form({ onRegisterCollaborator }) {
     const [name, setName] = useState('')
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
-    const [time, setTime] = useState('')
-    const [timeName, setTimeName] = useState('')
-    const [colorTime, setColorTime] = useState('')
+    const [team, setTeam] = useState('')
+    const [teamName, setTeamName] = useState('')
+    const [teamColor, setTeamColor] = useState('')
 
     const hanbleSalve = (event) => {
         event.preventDefault()
@@ -26,13 +26,13 @@ export default function Form({ onRegisterCollaborator }) {
             name,
             role,
             image,
-            time
+            team
         })
 
         setName('')
         setRole('')
         setImage('')
-        setTime('')
+        setTeam('')
     }
 
     return (
@@ -64,12 +64,12 @@ export default function Form({ onRegisterCollaborator }) {
                     onTyping={value => setImage(value)}
                 />
                 <DropdownList
-                    id={'user-select-time'}
+                    id={'user-select-team'}
                     isRequired={true}
                     label="Time"
-                    listItems={times}
-                    valueToUse={time}
-                    onSelectItem={value => setTime(value)}
+                    listItems={teams}
+                    valueToUse={team}
+                    onSelectItem={value => setTeam(value)}
                 />
                 <Button>
                     Criar Card
@@ -78,20 +78,20 @@ export default function Form({ onRegisterCollaborator }) {
             <form onSubmit={hanbleSalve}>
                 <fieldset>Preencha os dados para criar um novo time</fieldset>
                 <TextField
-                    id={'time-name'}
+                    id={'team-name'}
                     label="Nome"
                     placeholderText="Digite o nome do time"
                     isRequired={true}
-                    valueToUse={timeName}
-                    onTyping={value => setTimeName(value)}
+                    valueToUse={teamName}
+                    onTyping={value => setTeamName(value)}
                 />
                 <TextField
-                    id={'color-time'}
+                    id={'color-team'}
                     label="Cor [HEXADECIMAL]"
                     placeholderText="Digite a cor do time [#F2F2F2]"
                     isRequired={true}
-                    valueToUse={colorTime}
-                    onTyping={value => setColorTime(value)}
+                    valueToUse={teamColor}
+                    onTyping={value => setTeamColor(value)}
                 />
                 <Button>
                     Criar Time
