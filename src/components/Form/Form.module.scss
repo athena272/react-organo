@@ -3,8 +3,10 @@
     justify-content: center;
     margin: 80px 0;
     font-family: "Poppins";
+    gap: 50px;
 
     form {
+        height: 100%;
         max-width: 80%;
         background-color: #a5a5a5;
         border-radius: 20px;
@@ -24,6 +26,12 @@
     }
 }
 
+
+@media screen and (max-width: 992px) {
+    .form {
+        flex-direction: column;
+    }
+}
 
 @media screen and (max-width: 576px) {
     .form {
