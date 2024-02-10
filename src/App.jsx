@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import "@fontsource/poppins";
 import Banner from './components/Banner/Banner'
 import Form from './components/Form/Form'
@@ -47,10 +48,20 @@ export default function App() {
     }))
   }
 
+  function addTeam({ name, color }) {
+    setTeamsToUse(prevState => [...prevState, {
+      id: uuidv4(),
+      name,
+      color,
+    }])
+  }
+
   return (
     <>
       <Banner />
       <Form
+        addTeam={addTeam}
+        teamsList={teamsToUse}
         onRegisterCollaborator={collaborator => addCollaborators(collaborator)}
       />
       <h1>Minha organização</h1>
