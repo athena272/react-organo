@@ -86,7 +86,7 @@ export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
                 }}
             >
                 <fieldset>Preencha os dados para criar um novo time</fieldset>
-                <TextField
+                <Field
                     id={'team-name'}
                     label="Nome"
                     placeholderText="Digite o nome do time"
@@ -94,10 +94,10 @@ export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
                     valueToUse={teamName}
                     onTyping={value => setTeamName(value)}
                 />
-                <TextField
+                <Field
                     id={'color-team'}
+                    type='color'
                     label="Cor [HEXADECIMAL]"
-                    placeholderText="Digite a cor do time [#F2F2F2]"
                     isRequired={true}
                     valueToUse={teamColor}
                     onTyping={value => setTeamColor(value)}
