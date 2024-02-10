@@ -1,6 +1,14 @@
 .collaborator {
     width: 280px;
+    min-height: 380px;
     font-family: "Poppins";
+    position: relative;
+
+    .delete {
+        position: absolute;
+        right: -8px;
+        top: -10px;
+    }
 
     .header {
         background-color: #F0F0F0;
@@ -20,8 +28,10 @@
         border-radius: 0px 0px 10px 10px;
         padding-top: 90px;
         padding-bottom: 40px;
+        min-height: 160px;
 
         h4 {
+            margin-top: 0;
             color: #1737F7;
             font-size: 18px;
             line-height: 22px;
