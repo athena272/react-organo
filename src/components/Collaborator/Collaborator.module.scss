@@ -25,7 +25,7 @@
 
     .footer {
         background: #FFFFFF;
-        box-shadow: 0px 7px 20px 5px rgba(85,50,138,0.5);
+        box-shadow: 0px 7px 20px 5px rgba(85, 50, 138, 0.5);
         border-radius: 0px 0px 10px 10px;
         padding-top: 90px;
         padding-bottom: 40px;
@@ -45,6 +45,13 @@
             line-height: 22px;
             color: #212121;
             padding: 0 16px;
+            min-height: 46px;
+        }
+
+        .favoritedArea {
+            .colorStar {
+                color: #FFD700;
+            }
         }
     }
 }
