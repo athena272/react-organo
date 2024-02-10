@@ -5,13 +5,14 @@ import Button from "../Button/Button";
 import DropdownList from "../DropdownList/DropdownList";
 import TextField from "../TextField/TextField";
 import styles from './Form.module.scss'
-import { teams } from '../../data'
 
 Form.propTypes = {
+    addTeam: PropTypes.func.isRequired,
+    teamsList: PropTypes.array.isRequired,
     onRegisterCollaborator: PropTypes.func.isRequired,
 }
 
-export default function Form({ onRegisterCollaborator }) {
+export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
     const [name, setName] = useState('')
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
@@ -67,7 +68,7 @@ export default function Form({ onRegisterCollaborator }) {
                     id={'user-select-team'}
                     isRequired={true}
                     label="Time"
-                    listItems={teams}
+                    listItems={teamsList}
                     valueToUse={team}
                     onSelectItem={value => setTeam(value)}
                 />
@@ -75,7 +76,15 @@ export default function Form({ onRegisterCollaborator }) {
                     Criar Card
                 </Button>
             </form>
-            <form onSubmit={hanbleSalve}>
+            <form
+                onSubmit={(event) => {
+                    event.preventDefault()
+                    addTeam({ name: teamName, color: teamColor })
+                    //Limpar campo
+                    setTeamColor('')
+                    setTeamName('')
+                }}
+            >
                 <fieldset>Preencha os dados para criar um novo time</fieldset>
                 <TextField
                     id={'team-name'}
