@@ -3,15 +3,16 @@ import PropTypes from "prop-types"
 import { v4 as uuidv4 } from 'uuid';
 import Button from "../Button/Button";
 import DropdownList from "../DropdownList/DropdownList";
-import TextField from "../TextField/TextField";
+import Field from "../Field/Field";
 import styles from './Form.module.scss'
-import { teams } from '../../data'
 
 Form.propTypes = {
+    addTeam: PropTypes.func.isRequired,
+    teamsList: PropTypes.array.isRequired,
     onRegisterCollaborator: PropTypes.func.isRequired,
 }
 
-export default function Form({ onRegisterCollaborator }) {
+export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
     const [name, setName] = useState('')
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
@@ -39,7 +40,7 @@ export default function Form({ onRegisterCollaborator }) {
         <section className={styles.form}>
             <form onSubmit={hanbleSalve}>
                 <fieldset>Preencha os dados para criar o card do colaborador</fieldset>
-                <TextField
+                <Field
                     id={'user-name'}
                     label="Nome"
                     placeholderText="Digite seu nome"
@@ -47,7 +48,7 @@ export default function Form({ onRegisterCollaborator }) {
                     valueToUse={name}
                     onTyping={value => setName(value)}
                 />
-                <TextField
+                <Field
                     id={'user-role'}
                     label="Cargo"
                     placeholderText="Digite seu cargo"
@@ -55,7 +56,7 @@ export default function Form({ onRegisterCollaborator }) {
                     valueToUse={role}
                     onTyping={value => setRole(value)}
                 />
-                <TextField
+                <Field
                     id={'user-image'}
                     label="Imagem"
                     placeholderText="Digite o endereço da imagem"
@@ -67,7 +68,7 @@ export default function Form({ onRegisterCollaborator }) {
                     id={'user-select-team'}
                     isRequired={true}
                     label="Time"
-                    listItems={teams}
+                    listItems={teamsList}
                     valueToUse={team}
                     onSelectItem={value => setTeam(value)}
                 />
@@ -75,9 +76,17 @@ export default function Form({ onRegisterCollaborator }) {
                     Criar Card
                 </Button>
             </form>
-            <form onSubmit={hanbleSalve}>
+            <form
+                onSubmit={(event) => {
+                    event.preventDefault()
+                    addTeam({ name: teamName, color: teamColor })
+                    //Limpar campo
+                    setTeamColor('')
+                    setTeamName('')
+                }}
+            >
                 <fieldset>Preencha os dados para criar um novo time</fieldset>
-                <TextField
+                <Field
                     id={'team-name'}
                     label="Nome"
                     placeholderText="Digite o nome do time"
@@ -85,8 +94,9 @@ export default function Form({ onRegisterCollaborator }) {
                     valueToUse={teamName}
                     onTyping={value => setTeamName(value)}
                 />
-                <TextField
+                <Field
                     id={'color-team'}
+                    type='color'
                     label="Cor [HEXADECIMAL]"
                     placeholderText="Digite a cor do time [#F2F2F2]"
                     isRequired={true}

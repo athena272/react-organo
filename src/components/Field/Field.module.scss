@@ -1,4 +1,4 @@
-.textField {
+.field {
     margin: 24px 0;
     font-family: "Poppins";
 
@@ -17,4 +17,11 @@
         padding: 24px;
         box-sizing: border-box;
     }
+}
+
+.fieldColor {
+    input {
+        height: 75px;
+        padding: 14px 24px;
+    }       
 }

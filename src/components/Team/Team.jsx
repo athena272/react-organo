@@ -14,7 +14,7 @@ Team.propTypes = {
 }
 
 function Team({ name, color, id, collaborators, onDelete, onChangeTheme }) {
-
+    
     return (
         collaborators.length > 0 && (
             <section
