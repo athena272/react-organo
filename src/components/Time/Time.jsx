@@ -7,9 +7,11 @@ Time.propTypes = {
     primaryColor: PropTypes.string.isRequired,
     secondaryColor: PropTypes.string.isRequired,
     collaborators: PropTypes.array.isRequired,
+    onDelete: PropTypes.func,
+    onChangeTheme: PropTypes.func,
 }
 
-export default function Time({ name, primaryColor, secondaryColor, collaborators }) {
+export default function Time({ name, primaryColor, secondaryColor, collaborators, onDelete, onChangeTheme }) {
 
     return (
         collaborators.length > 0 && (
@@ -17,6 +19,12 @@ export default function Time({ name, primaryColor, secondaryColor, collaborators
                 className={styles.time}
                 style={{ backgroundColor: secondaryColor }}
             >
+                <input
+                    onChange={(event) => onChangeTheme(event.target.value, name)}
+                    value={secondaryColor}
+                    type="color"
+                    className={styles.inputColor}
+                />
                 <h3 style={{ borderColor: primaryColor }}>{name}</h3>
                 <div className={styles.collaborators}>
                     {
@@ -27,6 +35,7 @@ export default function Time({ name, primaryColor, secondaryColor, collaborators
                                 role={collaborator['role']}
                                 image={collaborator['image']}
                                 primaryColor={primaryColor}
+                                onDelete={onDelete}
                             />
                         ))
                     }
