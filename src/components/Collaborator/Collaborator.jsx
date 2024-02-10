@@ -1,8 +1,7 @@
 import { memo } from 'react';
 import styles from './Collaborator.module.scss'
 import PropTypes from "prop-types"
-import { AiFillCloseCircle } from 'react-icons/ai';
-import { IoIosStarOutline } from "react-icons/io";
+import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 Collaborator.propTypes = {
     id: PropTypes.string.isRequired,
@@ -12,9 +11,15 @@ Collaborator.propTypes = {
     backgroundColor: PropTypes.string.isRequired,
     isFavorited: PropTypes.bool.isRequired,
     onDelete: PropTypes.func,
+    onFavorited: PropTypes.func,
 }
 
-function Collaborator({ id, name, role, image, backgroundColor, onDelete, isFavorited }) {
+function Collaborator({ id, name, role, image, backgroundColor, onDelete, onFavorited, isFavorited }) {
+    
+    function handleFavorite() {
+        onFavorited(id)
+    }
+
     return (
         <div className={styles.collaborator}>
             <AiFillCloseCircle
@@ -35,10 +40,17 @@ function Collaborator({ id, name, role, image, backgroundColor, onDelete, isFavo
                 <h3>{name}</h3>
                 <h4>{role}</h4>
                 <div className={styles.favoritedArea}>
-                    <IoIosStarOutline
-                        size={55}
-                        className={styles[`${isFavorited ? 'colorStar' : 'blankStar'}`]}
-                    />
+                    {isFavorited ?
+                        <AiFillHeart
+                            size={55}
+                            onClick={handleFavorite}
+                        />
+                        :
+                        <AiOutlineHeart
+                            size={55}
+                            onClick={handleFavorite}
+                        />
+                    }
                 </div>
             </div>
         </div>
