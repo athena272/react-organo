@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "@fontsource/poppins";
 import Banner from './components/Banner/Banner'
 import Form from './components/Form/Form'
@@ -5,11 +6,23 @@ import Time from './components/Time/Time'
 import Footer from './components/Footer/Footer'
 import { times, inicial } from './data'
 import { useLocalState } from './hooks';
+import './App.css'
 
 export default function App() {
   // const [collaborators, setCollaborators] = useState([])
   const [collaborators, setCollaborators] = useLocalState("collaborators", inicial)
   const [timesToUse, setTimesToUse] = useLocalState("timesToUse", times)
+
+  console.log(timesToUse)
+
+  useEffect(() => {
+    setTimesToUse(timesToUse.map(time => {
+      if (time['color'].toLowerCase() === '#ff0033') {
+        time['color'] = '#57C278'
+      }
+      return time
+    }))
+  }, [])
 
   function addCollaborators(collaborator) {
     // setCollaborators([...collaborators, collaborator])
@@ -35,12 +48,11 @@ export default function App() {
     }))
   }
 
-  console.log(inicial)
-
   return (
     <>
       <Banner />
       <Form onRegisterCollaborator={collaborator => addCollaborators(collaborator)} />
+      <h1>Minha organização</h1>
       {
         timesToUse.map((time, index) => (
           <Time
