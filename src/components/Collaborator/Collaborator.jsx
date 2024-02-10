@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './Collaborator.module.scss'
 import PropTypes from "prop-types"
 import { AiFillCloseCircle } from 'react-icons/ai';
@@ -11,7 +12,7 @@ Collaborator.propTypes = {
     onDelete: PropTypes.func
 }
 
-export default function Collaborator({ id, name, role, image, backgroundColor, onDelete }) {
+function Collaborator({ id, name, role, image, backgroundColor, onDelete }) {
     return (
         <div className={styles.collaborator}>
             <AiFillCloseCircle
@@ -35,3 +36,5 @@ export default function Collaborator({ id, name, role, image, backgroundColor, o
         </div>
     )
 }
+
+export default memo(Collaborator)
