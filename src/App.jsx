@@ -3,15 +3,13 @@ import Banner from './components/Banner/Banner'
 import Form from './components/Form/Form'
 import Time from './components/Time/Time'
 import Footer from './components/Footer/Footer'
-import { times } from './data'
+import { times, inicial } from './data'
 import { useLocalState } from './hooks';
 
 export default function App() {
   // const [collaborators, setCollaborators] = useState([])
-  const [collaborators, setCollaborators] = useLocalState("collaborators", [])
+  const [collaborators, setCollaborators] = useLocalState("collaborators", inicial)
   const [timesToUse, setTimesToUse] = useLocalState("timesToUse", times)
-
-  console.log(times)
 
   function addCollaborators(collaborator) {
     // setCollaborators([...collaborators, collaborator])
@@ -28,14 +26,16 @@ export default function App() {
     console.log('Deleting collaborator')
   }
 
-  function handleChangeTheme(color, name) {
+  function handleChangeTheme({ color, name }) {
     setTimesToUse(timesToUse.map(time => {
-      if (time.name === name) {
-        time.secondaryColor = color
+      if (time['name'] === name) {
+        time['color'] = color
       }
       return time
     }))
   }
+
+  console.log(inicial)
 
   return (
     <>
@@ -46,11 +46,11 @@ export default function App() {
           <Time
             key={index}
             onChangeTheme={handleChangeTheme}
+            color={time['color']}
             name={time['name']}
-            primaryColor={time['primaryColor']}
-            secondaryColor={time['secondaryColor']}
             collaborators={collaborators.filter(collaborator => collaborator.time === time.name)}
             onDelete={removeCollaborator}
+            idTime={`${time['name']}-${index}`}
           />
         ))
       }
