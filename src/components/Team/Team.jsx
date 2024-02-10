@@ -1,10 +1,10 @@
 import Collaborator from '../Collaborator/Collaborator'
-import styles from './Time.module.scss'
+import styles from './Team.module.scss'
 import PropTypes from "prop-types"
 import hexToRgba from 'hex-to-rgba';
 import { memo } from 'react';
 
-Time.propTypes = {
+Team.propTypes = {
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
@@ -13,12 +13,12 @@ Time.propTypes = {
     onChangeTheme: PropTypes.func,
 }
 
-function Time({ name, color, id, collaborators, onDelete, onChangeTheme }) {
+function Team({ name, color, id, collaborators, onDelete, onChangeTheme }) {
 
     return (
         collaborators.length > 0 && (
             <section
-                className={styles.time}
+                className={styles.team}
                 style={{
                     backgroundColor: hexToRgba(color, '0.5'),
                     backgroundImage: 'url(/assets/fundo.png)',
@@ -57,4 +57,4 @@ function Time({ name, color, id, collaborators, onDelete, onChangeTheme }) {
     )
 }
 
-export default memo(Time)
+export default memo(Team)

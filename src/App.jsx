@@ -2,25 +2,23 @@ import { useEffect } from "react";
 import "@fontsource/poppins";
 import Banner from './components/Banner/Banner'
 import Form from './components/Form/Form'
-import Time from './components/Time/Time'
+import Team from './components/Team/Team'
 import Footer from './components/Footer/Footer'
-import { times, inicial } from './data'
+import { teams, inicial } from './data'
 import { useLocalState } from './hooks';
 import './App.css'
 
 export default function App() {
   // const [collaborators, setCollaborators] = useState([])
   const [collaborators, setCollaborators] = useLocalState("collaborators", inicial)
-  const [timesToUse, setTimesToUse] = useLocalState("timesToUse", times)
-
-  console.log(timesToUse)
+  const [teamsToUse, setTeamsToUse] = useLocalState("teamsToUse", teams)
 
   useEffect(() => {
-    setTimesToUse(timesToUse.map(time => {
-      if (time['color'].toLowerCase() === '#ff0033') {
-        time['color'] = '#57C278'
+    setTeamsToUse(teamsToUse.map(team => {
+      if (team['color'].toLowerCase() === '#ff0033') {
+        team['color'] = '#57C278'
       }
-      return time
+      return team
     }))
   }, [])
 
@@ -41,29 +39,31 @@ export default function App() {
   }
 
   function handleChangeTheme({ color, id }) {
-    setTimesToUse(timesToUse.map(time => {
-      if (time['id'] === id) {
-        time['color'] = color
+    setTeamsToUse(teamsToUse.map(team => {
+      if (team['id'] === id) {
+        team['color'] = color
       }
-      return time
+      return team
     }))
   }
 
   return (
     <>
       <Banner />
-      <Form onRegisterCollaborator={collaborator => addCollaborators(collaborator)} />
+      <Form
+        onRegisterCollaborator={collaborator => addCollaborators(collaborator)}
+      />
       <h1>Minha organização</h1>
       {
-        timesToUse.map((time, index) => (
-          <Time
+        teamsToUse.map((team, index) => (
+          <Team
             key={index}
             onChangeTheme={handleChangeTheme}
-            color={time['color']}
-            name={time['name']}
-            collaborators={collaborators.filter(collaborator => collaborator.time === time.name)}
+            color={team['color']}
+            name={team['name']}
+            collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
             onDelete={removeCollaborator}
-            id={time['id']}
+            id={team['id']}
           />
         ))
       }
