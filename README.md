@@ -31,8 +31,8 @@ Gerencie seus colaboradores com o Organo! Plataforma completa e gratuita, desenv
 ![image](https://github.com/athena272/react-organo/assets/58920070/759399ae-cc96-4951-812d-dc06d643756a)
 
 ### Mobile
+ ![image](https://github.com/athena272/react-organo/assets/58920070/f545aca3-fc94-46c0-9a14-7b25f8fd2740)
 
-![image](https://github.com/athena272/restaurant-react/assets/58920070/4a2333be-689a-4315-af89-4cad1a158eab)
 
 ## Link de [Acesso](https://react-organo-woad.vercel.app/)
 
